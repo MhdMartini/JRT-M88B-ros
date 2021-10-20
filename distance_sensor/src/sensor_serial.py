@@ -1,4 +1,5 @@
 import serial
+import struct
 import time
 
 
@@ -96,11 +97,8 @@ class DistanceSensor:
         :param num: msg value
         :return: number split into two numbers <=255
         """
-        ans = [0, num]
-        c = num - 255
-        if c > 0:
-            ans[0] = c
-        return ans
+        num_b = struct.pack(">h", num)
+        return list(num_b)
 
     def make_frame(self, head=HEAD, add=0, reg=0, payload_count=None, payload=None):
         """
