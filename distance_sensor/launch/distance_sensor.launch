@@ -1,0 +1,15 @@
+<launch>
+
+  <group ns="group">
+
+      <!-- remap as you wish -->
+      <node pkg="distance_sensor" name="distance_node" type="distance_sensor.py">
+          <param name="PORT" value="/dev/ttyUSB0"/>
+
+          <remap from="out_topic" to="distance"/>
+      </node>
+
+  </group>
+
+
+</launch>
