@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
 import rospy
-from std_msgs import Float32
+from std_msgs.msg import Float32
 from sensor_serial import DistanceSensor
 import os
 
@@ -23,7 +24,7 @@ class DistanceNode:
         info = self.sensor.get_info()
         for key, val in info.items():
             line = "{}\t:\t{}".format(key, val)
-            rospy.logawarn(line)
+            rospy.logwarn(line)
 
     def stream_distance(self):
         while True:
